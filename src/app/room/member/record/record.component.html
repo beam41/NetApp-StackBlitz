@@ -1,0 +1,22 @@
+<div *ngIf="record; else loadblock">
+  <mat-form-field>
+    <input matInput autocomplete="off" placeholder="Name" [(ngModel)]="record.name" (ngModelChange)="recordNameUpdate()" />
+  </mat-form-field>
+  <mat-form-field>
+    <input
+      matInput
+      type="number"
+      autocomplete="off"
+      placeholder="Amount"
+      [(ngModel)]="record.amount"
+      (ngModelChange)="recordAmountUpdate()"
+    />
+  </mat-form-field>
+  <mat-slide-toggle (change)="toggleDonateChange($event)" [checked]="record.isDonation">Donate</mat-slide-toggle>
+  <button mat-button (click)="delRec()">DELETE RECORD</button>
+</div>
+<ng-template #loadblock>
+  <div>
+    loading
+  </div>
+</ng-template>
